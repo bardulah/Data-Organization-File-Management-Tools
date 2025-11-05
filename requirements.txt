@@ -1,0 +1,2 @@
+# Core dependencies for File Organization Assistant
+PyYAML>=6.0
