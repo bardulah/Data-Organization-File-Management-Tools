@@ -1,0 +1,66 @@
+# File Organization Assistant Configuration
+# This is an example configuration file showing all available options
+
+# Directories to exclude from scanning
+exclude_dirs:
+  - .git
+  - .svn
+  - node_modules
+  - __pycache__
+  - .venv
+  - venv
+  - .idea
+  - .vscode
+
+# File extensions to exclude from processing
+exclude_extensions:
+  - .tmp
+  - .cache
+
+# Include hidden files (starting with .)
+include_hidden: false
+
+# Duplicate file detection settings
+duplicate_detection:
+  enabled: true
+  # Strategy for which file to keep: newest, oldest, shortest_path, first
+  keep_strategy: newest
+
+# File organization settings
+organization:
+  # Mode: type or date
+  mode: type
+  # Date format for date mode (strftime format)
+  date_format: "%Y/%m"
+
+  # Custom file categories (extends default categories)
+  custom_categories:
+    Projects:
+      - .xcodeproj
+      - .project
+      - .sln
+    Configs:
+      - .conf
+      - .cfg
+      - .ini
+
+# Archiving settings
+archiving:
+  # Number of days to consider a file as old
+  old_files_threshold_days: 365
+  # Compress archived files into zip
+  compress: true
+  # Remove empty directories after archiving
+  cleanup_empty_dirs: true
+
+# File naming conventions
+naming:
+  # Template for smart rename
+  # Available variables: {date}, {time}, {name}, {ext}, {counter}
+  template: "{date}_{name}"
+  # Convert filenames to lowercase
+  lowercase: false
+  # Replace spaces in filenames
+  replace_spaces: true
+  # Character to replace spaces with
+  space_replacement: "_"
