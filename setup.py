@@ -12,8 +12,8 @@ long_description = readme_file.read_text() if readme_file.exists() else ""
 
 setup(
     name="fileorganizer",
-    version="1.5.0",
-    description="A practical tool for organizing cluttered computer files with caching and undo support",
+    version="1.5.1",
+    description="Production-ready file organization tool with logging, progress tracking, and robust error handling",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="File Organization Assistant",
@@ -24,8 +24,9 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'fileorganizer=fileorganizer.cli_v1_5:main',
+            'fileorganizer=fileorganizer.cli_prod:main',
             'fileorganizer-v1=fileorganizer.cli:main',
+            'fileorganizer-v1.5=fileorganizer.cli_v1_5:main',
         ],
     },
     classifiers=[
