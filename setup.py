@@ -12,8 +12,8 @@ long_description = readme_file.read_text() if readme_file.exists() else ""
 
 setup(
     name="fileorganizer",
-    version="2.0.0",
-    description="A comprehensive tool for organizing cluttered computer files and folders with undo, smart detection, and plugin support",
+    version="1.5.0",
+    description="A practical tool for organizing cluttered computer files with caching and undo support",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="File Organization Assistant",
@@ -21,33 +21,15 @@ setup(
     packages=find_packages(),
     install_requires=[
         "PyYAML>=6.0",
-        "tqdm>=4.65.0",
-        "Pillow>=10.0.0",
-        "imagehash>=4.3.1",
-        "PyPDF2>=3.0.0",
-        "python-magic>=0.4.27",
-        "schedule>=1.2.0",
-        "Flask>=2.3.0",
-        "Flask-CORS>=4.0.0",
-        "click>=8.1.0",
-        "rich>=13.0.0",
     ],
-    extras_require={
-        'dev': [
-            "pytest>=7.4.0",
-            "pytest-cov>=4.1.0",
-            "pytest-mock>=3.11.0",
-        ]
-    },
     entry_points={
         'console_scripts': [
-            'fileorganizer=fileorganizer.cli_v2:main',
+            'fileorganizer=fileorganizer.cli_v1_5:main',
             'fileorganizer-v1=fileorganizer.cli:main',
-            'fileorganizer-web=fileorganizer.web_api:run_server',
         ],
     },
     classifiers=[
-        "Development Status :: 5 - Production/Stable",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: End Users/Desktop",
         "Topic :: System :: Filesystems",
         "Topic :: Utilities",
@@ -60,5 +42,5 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
     ],
-    keywords="file organization, duplicate files, file management, archiving, undo, smart detection, plugins, web interface",
+    keywords="file organization, duplicate files, file management, archiving, undo, caching",
 )
