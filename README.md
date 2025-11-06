@@ -1,51 +1,85 @@
-# Personal File Organization Assistant
+# Personal File Organization Assistant v2.0
 
-A comprehensive command-line tool that helps users organize their cluttered computer files and folders. This tool addresses the significant challenge of digital clutter by providing automated file scanning, duplicate detection, intelligent organization, archiving, and batch renaming capabilities.
+A comprehensive command-line tool that helps users organize their cluttered computer files and folders. Version 2.0 brings major improvements including undo support, smart detection, plugin system, web interface, and significant performance enhancements.
+
+## 🎉 What's New in v2.0
+
+- **Undo/Redo System**: Full transaction tracking with rollback capability
+- **Smart Detection**: Extract EXIF data from photos, parse PDF metadata
+- **Plugin System**: Extensible architecture for custom organization rules
+- **Web Interface**: Modern web UI for remote file management
+- **Performance**: 10-50x faster with parallel processing and caching
+- **Interactive Mode**: User-friendly confirmations and selections
+- **Database Tracking**: SQLite-based operation history
+- **Better Logging**: Comprehensive logging with helpful error messages
+
+See [CHANGELOG.md](CHANGELOG.md) for complete list of changes.
+See [MIGRATION.md](MIGRATION.md) if upgrading from v1.0.
 
 ## Features
 
-### 1. File Scanning & Analysis
-- Recursively scan directories and collect file metadata
-- Analyze file type distribution
-- Calculate total storage usage
-- Export scan results to JSON for further analysis
+### 1. Advanced File Scanning & Analysis ⚡
+- **Incremental Scanning**: Cache-based scanning avoids re-processing unchanged files
+- **Parallel Hashing**: Multi-threaded hash calculation for speed
+- **Smart Hashing**: Quick hash for large files, full hash for small files
+- **Progress Bars**: Real-time progress feedback
+- **Smart Metadata**: Extract EXIF from photos, PDF metadata, file type detection
+- **Statistics**: Detailed file type distribution and storage analysis
 
-### 2. Duplicate Detection
-- Identify duplicate files using MD5 hash comparison
-- Calculate wasted storage space
-- Multiple strategies for keeping files (newest, oldest, shortest path, first)
-- Generate detailed duplicate reports
-- Remove or move duplicates safely
+### 2. Intelligent Duplicate Detection 📑
+- **SHA256 Hashing**: Secure hash comparison (upgraded from MD5)
+- **Quick Detection**: Fast duplicate identification with smart hashing
+- **Interactive Mode**: Choose which duplicates to keep/remove
+- **Multiple Strategies**: newest, oldest, shortest path, first
+- **Detailed Reports**: Generate comprehensive duplicate analysis
+- **Safe Operations**: Move duplicates instead of deleting
 
-### 3. Intelligent Organization
-- **Organize by Type**: Automatically categorize files into folders (Documents, Images, Videos, etc.)
-- **Organize by Date**: Group files by modification date with customizable date formats
-- Configurable file categories
-- Handles name conflicts automatically
-- Preserves file metadata
+### 3. Smart Organization with Plugins 🎯
+- **Plugin Architecture**: Extensible organization rules
+- **Built-in Plugins**:
+  - **Invoice Organizer**: Detect and organize invoices by vendor and date
+  - **Photo Organizer**: Use EXIF data for accurate date-based organization
+  - **Document Organizer**: Organize documents by year
+  - **Project Organizer**: Group project files intelligently
+- **Custom Plugins**: Load your own plugins from `~/.fileorganizer/plugins`
+- **Configurable Categories**: Customize file type categories
 
-### 4. Archiving
-- Archive old files based on last access date
-- Archive specific file types by extension
-- Compress archives into ZIP files
-- Clean up empty directories after archiving
-- Safe operations with dry-run mode
+### 4. Undo/Transaction System ↶
+- **Full History**: Track all file operations in SQLite database
+- **Undo Support**: Reverse operations (moves, renames, copies)
+- **Transaction Safety**: Atomic operations with rollback
+- **Snapshots**: Create restore points before major operations
 
-### 5. Batch Renaming
-- Pattern-based renaming with search and replace
-- Regular expression support
-- Smart template-based renaming with variables:
-  - `{date}` - Modification date
-  - `{time}` - Modification time
-  - `{name}` - Original filename
-  - `{ext}` - File extension
-  - `{counter}` - Sequential counter
+### 5. Advanced Archiving 📦
+- **Smart Archiving**: Archive based on access time or file type
+- **Compression**: ZIP compression with configurable settings
+- **Cleanup**: Automatic empty directory removal
+- **Preserve Structure**: Maintain directory hierarchy in archives
 
-### 6. Safety Features
-- Dry-run mode for all operations
-- Automatic conflict resolution
-- Excluded directories (`.git`, `node_modules`, etc.)
-- Verbose output for transparency
+### 6. Batch Renaming 📝
+- **Template Variables**: {date}, {time}, {name}, {ext}, {counter}
+- **Smart Dates**: Use EXIF date for photos, PDF creation date for documents
+- **Regex Support**: Advanced pattern matching
+- **Preview Mode**: See changes before applying
+
+### 7. Web Interface 🌐
+- **REST API**: Flask-based API for remote management
+- **Modern UI**: Clean, responsive web interface
+- **Real-time Stats**: Dashboard with operation statistics
+- **Remote Access**: Manage files from any device
+
+### 8. Configuration System ⚙️
+- **YAML/JSON Support**: Flexible configuration formats
+- **Default Settings**: Customize behavior globally
+- **Per-Operation Config**: Override settings per command
+- **Plugin Configuration**: Configure plugin behavior
+
+### 9. Enhanced Safety 🛡️
+- **Dry-run Mode**: Test operations without making changes
+- **Atomic Operations**: All-or-nothing file operations
+- **Better Errors**: Helpful error messages with suggestions
+- **Logging**: Comprehensive logging to `~/.fileorganizer/logs`
+- **Backups**: Automatic backups before destructive operations
 
 ## Installation
 

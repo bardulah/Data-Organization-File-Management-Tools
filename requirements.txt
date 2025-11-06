@@ -1,2 +1,37 @@
 # Core dependencies for File Organization Assistant
 PyYAML>=6.0
+
+# Progress bars and UI
+tqdm>=4.65.0
+
+# Image processing and EXIF
+Pillow>=10.0.0
+imagehash>=4.3.1
+
+# PDF processing
+PyPDF2>=3.0.0
+
+# Database
+# SQLite is built-in to Python
+
+# Parallel processing
+# concurrent.futures is built-in to Python
+
+# File type detection
+python-magic>=0.4.27
+
+# Scheduling
+schedule>=1.2.0
+
+# Web interface
+Flask>=2.3.0
+Flask-CORS>=4.0.0
+
+# Better CLI
+click>=8.1.0
+rich>=13.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
